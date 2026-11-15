@@ -39,7 +39,9 @@ which is itself licensed under the GPL, version 2.
 | `verify_hashes.sh` | Checks the files against `prereg/MANIFEST` |
 | `LICENSE` | GNU General Public License, version 2 |
 
-Raw traces (about 25 GB) are not included. They can be regenerated with the scripts below.
+The raw traces of all campaigns (about 29 GB) are not in this repository. They are archived, together with this
+package, at https://doi.org/10.5281/zenodo.24247377 (layout described in `README_traces.md` there), and they can
+also be regenerated with the scripts below.
 
 ## Reproducing the numbers from the results
 
