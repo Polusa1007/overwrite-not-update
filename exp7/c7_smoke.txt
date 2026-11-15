@@ -1,0 +1,4 @@
+ext4 T0 SC dbupd 0
+xfs T0 SC logapp 0
+btrfs TF SC dbupd 0
+f2fs T0 S0 logapp 0

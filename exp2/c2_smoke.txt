@@ -1,0 +1,8 @@
+churn ext4 T0 SG targz 0
+logw ext4 TF SC targz 0
+churn xfs T0 SG targz 0
+logw xfs TF SC targz 0
+churn btrfs T0 SG targz 0
+logw btrfs TF SC targz 0
+churn f2fs T0 SG targz 0
+logw f2fs TF SC targz 0

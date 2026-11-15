@@ -1,0 +1,4 @@
+ext4 TF SC targz 0
+xfs TF SC targz 0
+btrfs TF SC targz 0
+f2fs TF SC targz 0

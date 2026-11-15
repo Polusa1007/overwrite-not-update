@@ -1,0 +1,75 @@
+99a4153e12f065f9d90bfd48ec9b11821dc05c4a0e29266a41625179873bac7d *prereg/C1.md
+4f597674434d38c917dd9568ecc043829497cc86c608833276843ef926fcebda *exp/femu_fs.sh
+181bc5bc67f8e1a07d131e75afb889c5b7a5e1fdddc71af839beffe85237303b *exp/fs_map.py
+04d9f6a0512a3e0a89b383f5ab71b994d4df2c867539c08fbd5c146a21e00e65 *exp/make_fs_script.py
+c3bfea965477e7b140e775b69278c59883042a12139e9e4271bea99e4cd9261f *exp/c1_batch.sh
+5cc7909e656877367e512c934ff8b5e139c0edf5167646d52d8dd5b082d2addc *exp/run_list.py
+fd0797d7476408c6711740ee884dc0e3032fad1c1f51c6a22e7c52da7cd3937d *exp/runs.txt
+04d4af718b05cc56d8f601eff2b5fb51b0f22b1c02a3ec335d0bd24f24bbcf90 *femu/patch_trace_only.py
+74725107191dbd0578df4a312ceb8580df77d691aa02fcb48bef7067ddd840f4 *femu/patch_delta.py
+1d595607a91727067c8657237f27e16af4a94edb85c594b82ba2eac2c7590604 *prereg/C2.md
+6788e0552c841682ef51cf6d968c5dc3ff660825f849dfaa7ab665e755268823 *exp/analyze_c.py
+9751981461e255f5a80f6cded66673987f96841896b95c713e5bde46e9edc056 *exp2/churn_age.py
+fd1c42e40967f56e624ffdc5ba8eeefed5bb092eee837344459136a67a021119 *exp2/logw_to_trace.py
+a6163715d520087b7ae6654c842f4b84fd7c3e3d0aa24ae12e1bdecabcc5f6ce *exp2/fs_map.py
+# exp/runs.txt was hashed with CRLF line ends; the VM copy has LF (hash ab663562...), same lines. versions.txt on the VM records the LF hash.
+fd10227f610750f7b82e02cf9fdbc04ee7e2ecf75d59230f7136a18ac0b5731c *exp2/make_c2_scripts.py
+115561e1770b28b3d64ddeb8ad5dc67a6316855b8e1bb40e50d8696c1e46756b *exp2/femu_churn.sh
+d2da1a407538798fc7d512beb4161acbf7ae170e1fea79e162d85cb41fe4d2ce *exp2/femu_logw.sh
+fda0abffb3a8f7a49e3dcb583dd9791bfcacc3b5aa310f64566956aabef1894e *exp2/c2_batch.sh
+b6caac81469a9981ea8f7979e3322634187dd53debeb1aa6ab626d582fdcaaf3 *exp2/c2_run.sh
+b3f53d88ad31ea74b24fa7a38c1437bf2c277656ef682101582b081fff6ff435 *exp2/c2_run_list.py
+d81f8ef444e66109fdd8a2c3088e89e083d9dbc5872a89a8754584c11bdac6ae *exp2/c2_runs.txt
+cf3d4da6ad8e9d36a5dddb4c7630f9f275258a32f17e37bb52b0d5a4e9ff2587 *exp2/c2_smoke.txt
+# 2026-11-08: C2 parts B and C frozen after the 8 smoke runs (rep 0, one per file system and part) passed; no design fault found, no change to C2.md. The seven exp2 files above are the frozen C2 campaign.
+01bf33f304c86ae81232f3836fb2980852eae2dd87789985211f47e8376858cc *prereg/C3.md
+30dce26b620f0c358a61b4776cbc00339f485eb048df26e92d040d3751f073dd *exp3/c3_run_list.py
+dfb50188aade35f0b0e53f232d1e4305fd15d2b45a06d311be350ad67a94141b *exp3/c3_runs.txt
+575b0f2c503aaabd0869272714af7544c32de5d66012f90a368468f9a4804722 *exp3/c3_smoke.txt
+1f2eaa238671e802733eda843386170bef91f529cc5f70973f20f3756e9af6de *exp3/c3_batch.sh
+20631327d91dabf0f1491c6250720e09feb31260a7ac7b6bc93e10660a82c08d *exp3/c3_run.sh
+# 2026-11-10: C3 frozen after 4 smoke runs passed; it reuses exp/femu_fs.sh, exp/fs_map.py and exp/analyze_c.py as hashed above. Written after C1 and C2 results were read.
+# 2026-11-10 20:05 UTC: exp3/c3_run.sh changed after the freeze, local waiter only (grep -c exits 1 at count 0, so the waiter quit at 63/108 while the VM campaign kept running; added '; true' and a 'wait' mode that skips launching). The VM-side scripts and the measurement are unchanged. New hash: 847efa30f8728646e8dd78d70052b2fe245acf5628b97e3321f1b20ba32515aa
+# 2026-11-11: C4 (released trace build) frozen after 2 smoke runs passed; written after C1-C3 results were read. Build: FEMU 2d50161f + femu/apply_trace.py; VM binary sha256 4c3d6884b7d52ea83c5ea8a5b68eda711ba5d0b8ad7c9714497bb1d64b320ddc.
+d5b673561b6ff1964b3201e982bbc2ea1aa26ffac0265a7996a0673580bb1abd *prereg/C4.md
+da53d884cd7ac0a0b67038ea24ec4985de18dbb816393d0ad618850de0bb8a87 *femu/ftl-trace.c
+ee9ae163337ca3a80e4cb14c6d91a3a1e28b84d96db15928685a3bdc46d80601 *femu/ftl-trace.h
+cda2cdc25d58ac0b954eedc4f0c5ec80eab38ce23ef611b72162b2537351da60 *femu/apply_trace.py
+37423a7580d3ed257e14cd591e74902b96b3c47378e8731eef18f3e41ecac32a *exp4/c4_run_list.py
+bdfc70a01f167343896fbbdcfcc4f5bed1a2ea907293b95507257ff4199a72f9 *exp4/c4_runs.txt
+5e19acdd9caf96276ac5ed8a1f13159e73464a04d791b0e183579c9c377fd3c0 *exp4/c4_smoke.txt
+6f2184c02fb326663c8a72abc2f777b04ae447e865d3e56366f87b319668f78e *exp4/c4_run.sh
+# 2026-11-11: the C4 VM powered off at 03:42:20 UTC (clean systemd power-off; no power-off command was issued inside the VM; cause not determined) after 20 of 48 formal runs. The 2 runs in progress (xfs TF SC sqlite 2, btrfs T0 SC targz 1) had no trace; their partial folders were moved to ~/c4_interrupted on the VM, and the campaign was resumed at 06:50 UTC with the same build, scripts and run list. The 20 completed runs were kept.
+# 2026-11-11: C5 (deleted-data fraction, four deleted copies on 14336 MiB) frozen after 4 smoke runs passed; written after C1-C4 results were read. Build: the released trace build of C4 (VM binary sha256 4c3d6884...).
+d07c1df4a8781ae0725198af77a2cb55a3fb255e41c3af246235ba014635430f *prereg/C5.md
+60890e1705ac8eba759d5b57ac7b73fd3940642821edc936c42c24b2a561b482 *exp5/make_c5_scripts.py
+ff668ffe79eef2cf474255a187f0cfd13bf6a89276c516811b2775193161f3fc *exp5/femu_fs_c5.sh
+f689f88f264e389c00d29d7768a17eac09aa004357992ef95eaa309bd9317659 *exp5/c5_batch.sh
+4e48003c3bf885dc1181fef954133bb18d37cadc1be74b44adfb1927868c44ef *exp5/c5_run_list.py
+e8dfde972060bd22db6a7b6c98b7f6f0f81d6b79c5313e90a4fed876b6a1ac6d *exp5/c5_runs.txt
+23c4f2a0d0cdf2eee38ca58e536b3195bc090a0ef866f756f85cf7419bdf8e12 *exp5/c5_smoke.txt
+8e49739fd1d84082f9bc9dedaa0654993c0b986ff4114aa1c0982cd482e3d61a *exp5/c5_run.sh
+# 2026-11-11 correction: the C4 power-off at 03:42:20 UTC was caused by the power-off timer that exp4/c4_run.sh starts in smoke mode (one hour after the smoke campaign ended at 02:38 UTC); the formal launch did not stop it. The same timer stopped the first C5 formal launch (smoke campaign ended 10:11 UTC). Measurement unaffected: interrupted runs had no trace and were rerun.
+# 2026-11-11: exp5/c5_run.sh changed after the C5 freeze, launcher only: it now stops a pending power-off timer before starting a campaign. VM-side scripts and the measurement are unchanged. New hash: c2c16cd3de85d70d216422f7ff2c08ea19e970bb5086a804a57b44a8861c04bf
+# 2026-11-11: C5 first formal launch stopped by that timer at about 11:15 UTC after 3 of 36 runs; the run in progress (xfs T0 SD targz 1) had no trace, its partial folder was moved to ~/c5_interrupted on the VM, and the campaign was resumed at 14:35 UTC with the fixed launcher, same build, scripts and run list. The 3 completed runs were kept.
+# 2026-11-11: exp5/c5_run.sh fixed again before any further run: the first pkill pattern also matched the launching shell (whose command text contains the timer's), so the 14:32 UTC resume exited before starting; nothing ran. The timer is now matched by its command line start ('^bash -c while'). New hash: 59318c77878305414de147f0c6de7041136277a174ce76fb7be48f0ffe843af3
+# 2026-11-12: C6 (released build on SC-T0 and SC-TF, all tools, 156 runs) frozen before any run; written after C1-C5 results were read and a reviewer request; no smoke runs (C4 setup). Launcher stops a pending power-off timer and does not power off after the pull.
+c78da566055614ed01ff0dba6ea72b22d809ea28d9abf49d02c9594852b51a1f *prereg/C6.md
+caa44e992428450ad79d5b42a88147257e0a05ac991985cd7c3afd20fedb6cce *exp6/c6_run_list.py
+7f0eb83d2dd140f6b3f4890495fa9289c2dff686621395f1669c9d30b95ba8b8 *exp6/c6_runs.txt
+ec712d7dd4257848c72e7e7f1a048acbb60e732677a278c0c52cf3a1cddd0092 *exp6/c6_run.sh
+# 2026-11-12: C6 deviation. The guest image has network access and Ubuntu's unattended-upgrades enabled (as in C1-C5, whose guests kept kernel 6.8.0-147 throughout: checked read-only on all four images; the only upgrade during C1-C5 was ca-certificates on instance 2 on 2026-11-07). During C6, at 08:21 UTC, unattended-upgrades in the instance-3 guest installed kernel 6.8.0-149 without linux-modules-extra; instance 3 then booted that kernel, so its F2FS mount failed twice (f2fs TF SC rsync 3, completed by instance 4) and five instance-3 runs started after 08:26 ran on kernel 6.8.0-149 (btrfs TF SC targz 2, ext4 T0 SC gzipf 1, btrfs TF SC sqlite 1, btrfs TF SC rsync 1, ext4 TF SC copynr 2); the upgrade itself ran during f2fs TF SC git 1. These six runs were moved to ~/c6_kernel149 (kept, reported) and rerun with a fresh instance-3 overlay of the C1 image (kernel 6.8.0-147). From now on the instance-3 and instance-4 guests have apt-daily.timer, apt-daily-upgrade.timer and unattended-upgrades.service masked and APT::Periodic set to 0; the old overlay is kept as u20s_i3_c6_kernel149.qcow2. Also: when a run fails, femu_fs.sh exits before stopping its emulator; the next run of that instance stops it.
+# 2026-11-13: C7 (update workloads, 72 runs) frozen after 4 smoke runs passed; written after C1-C6 results were read and a reviewer request. Guests run with automatic upgrades masked (see the C6 note). exp7/c7_pages.py added before the freeze (see C7.md).
+c56a05ef923000ab890e283f44721993cf6b24b941459e86865d40e476f553b2 *prereg/C7.md
+7a9291c03f3e79879e8867196c0f36794b78d37f443ea938e6460e6a077466bf *exp7/c7_wl.py
+7e576d1cff894a8917705604e8aa28732b19887eb80612899ff90045d05fedc2 *exp7/make_c7_scripts.py
+35d5721f6efda6dc37921166adff2cf289106966057e00fa132ce0674444b5ae *exp7/femu_fs_c7.sh
+39bf095b8d301a76042b4102a903a6573f54b1880c817282d1514b4cfc9f5bae *exp7/fs_map_c7.py
+47e6f2d67ee2ed84cec642331574b3da4c94a8f51495a8bc8107eebd540dd344 *exp7/c7_batch.sh
+e0cf28b1359bb875b5585360eb3cdaf725c1d2250cbfb272a7a54f22672ef397 *exp7/c7_run_list.py
+478fb7ccfb9e168dbe9d1fd56b357724f60c9cfcb65d3add36d3f6f04c12b583 *exp7/c7_runs.txt
+2ac79a84fb8c285483eba7e082c955c0779d20c047bb33a5ea24f0b46997d175 *exp7/c7_smoke.txt
+b8c70171ff2ba171e620bc93f7dbe3375d58060c7cc4f94aae36e07c507f6db8 *exp7/c7_run.sh
+398414f30eb968e2a143a416e610a8495928d576b33e17763f230aa0de5f3ef0 *exp7/c7_pages.py
+# 2026-11-15: clarification, no file changed: the "reviewer" named in C6.md, C7.md and the C6 and C7 notes above was a
+# person outside the author team who read a draft informally before submission; it does not refer to peer review by a journal.

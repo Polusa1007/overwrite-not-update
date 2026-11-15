@@ -1,0 +1,30 @@
+#!/bin/bash
+# Paper C formal runs, in the fixed order of runs.txt; two passes, so a failed run is rerun once.
+#   c1_batch.sh OUTROOT INST
+OUTROOT=$1; INST=$2
+export FEMU_RFTL_RWSTAT=1 FEMU_MAP=1 FEMU_MODE=trace
+TRACE=/tmp/femu_trace_i$INST.bin
+export FEMU_RFTL_TRACE=$TRACE
+for pass in 1 2; do
+    while read -r fs trim s tool rep; do
+        root=$OUTROOT/$fs
+        out=$root/${trim}_${s}_W60/${tool}_$rep
+        [ -s "$out/trace.bin.gz" ] && continue
+        mkdir -p "$(dirname "$out")"
+        mkdir "$out.claim" 2> /dev/null || continue
+        echo "$(date -u +%FT%TZ) start $fs $trim $s $tool $rep inst$INST pass$pass"
+        sudo rm -f "$TRACE"
+        rm -f "$out/dump.hdr"
+        if FEMU_FS=$fs INST=$INST ~/femu_fs.sh "$root" "$trim" "$s" W60 "$tool" "$rep" > "$OUTROOT/last_run_i$INST.log" 2>&1 \
+            && [ -s "$out/map.txt.gz" ] && sudo gzip -1 -c "$TRACE" > "$out/trace.bin.gz"; then
+            echo "$(date -u +%FT%TZ) done $fs $trim $s $tool $rep inst$INST"
+        else
+            echo "$(date -u +%FT%TZ) FAILED $fs $trim $s $tool $rep inst$INST pass$pass"
+            cp "$OUTROOT/last_run_i$INST.log" "$out.fail$pass.log"
+            rm -f "$out/trace.bin.gz"
+        fi
+        rmdir "$out.claim" 2> /dev/null
+        sudo rm -f "$TRACE"
+    done < ~/runs.txt
+done
+echo "$(date -u +%FT%TZ) campaign done inst$INST"
